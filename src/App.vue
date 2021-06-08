@@ -26,13 +26,11 @@
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-import { FormItem } from "vue-form-wrapper";
 
 @Options({})
 export default class App extends Vue {
-  public formData: FormItem[] = [];
 
-  public formItemChange(formField: FormItem): void {
+  public formItemChange(formField: any): void {
     console.log(formField);
   }
 
