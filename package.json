@@ -27,6 +27,6 @@
     "eslint-plugin-vue": "^7.0.0",
     "prettier": "^2.2.1",
     "typescript": "~4.1.5",
-    "vue-form-wrapper": "^1.2.6"
+    "vue-form-wrapper": "^1.2.7"
   }
 }
