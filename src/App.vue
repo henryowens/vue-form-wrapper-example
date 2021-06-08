@@ -1,27 +1,60 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+  <vue-form-wrapper
+    :realtime="false"
+    @form-item-change="formItemChange"
+    @form-button-clicked="formButtonClicked"
+    class="form"
+  >
+    <h5>Send me a message</h5>
+    <p>please enter your details in the form bellow</p>
+    <span>
+      Name:
+      <input ref="name" type="text" placeholder="Name" />
+    </span>
+    <span>
+      Email:
+      <input ref="email" type="email" placeholder="Email" />
+    </span>
+    <span>
+      Number:
+      <input ref="phone" type="tel" placeholder="Phone" />
+    </span>
+
+    <button ref="button">Send Message</button>
+  </vue-form-wrapper>
 </template>
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-import HelloWorld from "./components/HelloWorld.vue";
+import { FormField, FormButtonPayload } from "vue-form-wrapper";
 
-@Options({
-  components: {
-    HelloWorld,
-  },
-})
-export default class App extends Vue {}
+@Options({})
+export default class App extends Vue {
+  public formData: FormField[] = [];
+
+  public formItemChange(formField: FormField): void {
+    console.log(formField);
+  }
+
+  public formButtonClicked(form: FormButtonPayload): void {
+    console.log(form);
+  }
+}
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style scoped>
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;900&display=swap");
+.form {
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  margin: 0 auto;
+  align-content: space-around;
+}
+.form span {
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
 }
 </style>

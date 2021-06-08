@@ -1,4 +1,6 @@
 import { createApp } from "vue";
 import App from "./App.vue";
 
-createApp(App).mount("#app");
+import VueFormWrapper from "vue-form-wrapper";
+
+createApp(App).use(VueFormWrapper).mount("#app");
