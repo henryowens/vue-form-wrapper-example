@@ -26,17 +26,17 @@
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-import { FormField, FormButtonPayload } from "vue-form-wrapper";
+import { FormItem } from "vue-form-wrapper";
 
 @Options({})
 export default class App extends Vue {
-  public formData: FormField[] = [];
+  public formData: FormItem[] = [];
 
-  public formItemChange(formField: FormField): void {
+  public formItemChange(formField: FormItem): void {
     console.log(formField);
   }
 
-  public formButtonClicked(form: FormButtonPayload): void {
+  public formButtonClicked(form: any): void {
     console.log(form);
   }
 }
